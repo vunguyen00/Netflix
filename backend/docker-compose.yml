@@ -1,0 +1,36 @@
+version: "3.3"
+
+services:
+  mongo-db:
+    image: mongo:6
+    container_name: mongo-db
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  backend-app:
+    build: .
+    container_name: backend-app
+    restart: always
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    environment:
+      - MONGO_URI=mongodb://root:example@mongo-db:27017/dailywithminh?authSource=admin
+      - PORT=${PORT}
+      - JWT_SECRET=${JWT_SECRET}
+      - ADMIN_USER=${ADMIN_USER}
+      - ADMIN_PASS=${ADMIN_PASS}
+    volumes:
+      - /var/www/html/frontend/dist:/app/frontend/dist
+    depends_on:
+      - mongo-db
+
+volumes:
+  mongo_data:

@@ -1,0 +1,56 @@
+# Redirect toàn b? HTTP sang HTTPS
+server {
+    listen 80;
+    server_name dailywithminh.com www.dailywithminh.com;
+
+    return 301 https://$host$request_uri;
+}
+
+# Server HTTPS chính
+server {
+    listen 443 ssl;
+    server_name dailywithminh.com www.dailywithminh.com;
+
+    # C?u hình SSL t? Let's Encrypt
+    ssl_certificate /etc/letsencrypt/live/dailywithminh.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/dailywithminh.com/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+    # Route 1: /cookie_check
+    location /cookie_check {
+        root /var/www/html;
+        index index.html;
+        try_files $uri $uri/ =404;
+    }
+
+    # Route 2: /dailywithMinh
+    location /dailywithMinh {
+        root /var/www/html;
+        index index.html;
+        try_files $uri $uri/ =404;
+    }
+
+    # Route 3: /managment (yêu c?u auth)
+    location /managment {
+        root /var/www/html;
+        index index.html;
+        auth_basic "Restricted Area";
+        auth_basic_user_file /etc/nginx/.htpasswd;
+        try_files $uri $uri/ =404;
+    }
+
+    # Route BE API
+    location /api/ {
+        proxy_pass http://127.0.0.1:10000/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    # Route m?c d?nh (fallback)
+    location / {
+        root /var/www/html/dailywithMinh;
+        index index.html;
+        try_files $uri $uri/ /dailywithMinh/index.html;
+    }
+}

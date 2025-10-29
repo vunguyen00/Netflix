@@ -1,0 +1,281 @@
+/* src/Header.css */
+
+/* chung cho container */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ====== Toàn bộ header ====== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  font-family: 'Poppins', sans-serif;
+  user-select: none;
+}
+
+/* ====== Top bar ====== */
+.top-bar {
+  background: linear-gradient(90deg, #1f1f1fcc, #000000aa);
+  color: #fff;
+  height: 3rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+.top-bar.container {
+  display: flex;
+}
+
+/* Logo text */
+.site-logo-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+/* Right side (phone, amount, logout, cart) */
+.top-bar__right {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.top-bar__left img{
+  height: 150px;
+}
+/* chung cho số dư */
+.user-amount {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+  background: rgba(255,255,255,0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+.user-amount:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-1px);
+}
+
+/* nút Đăng xuất / Đăng nhập */
+.btn-link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 6px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.btn-link:hover {
+  background: #fff;
+  color: #111;
+  border-color: #fff;
+}
+
+/* ===== User menu ===== */
+.user-menu {
+  position: relative;
+}
+
+.user-icon {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: #fff;
+  color: #111;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  padding: 0.5rem 0;
+  min-width: 160px;
+  z-index: 100;
+}
+
+.user-dropdown li {
+  padding: 0.4rem 1rem;
+  white-space: nowrap;
+}
+
+.user-dropdown li:hover {
+  background-color: #f3f4f6;
+}
+
+.account-line {
+  cursor: default;
+  font-weight: 600;
+}
+
+.user-dropdown a,
+.user-dropdown button {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.user-dropdown button:hover,
+.user-dropdown a:hover {
+  text-decoration: none;
+}
+
+/* ====== Nav bar ====== */
+.nav-bar {
+  background: #111;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+.nav-bar.container {
+  display: flex;
+}
+
+/* trái: icon + label */
+.nav-bar__left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.nav-icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  transition: transform 0.2s;
+}
+.nav-icon:hover {
+  transform: scale(1.05);
+}
+.nav-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+/* phải: placeholder cho nav items nếu cần */
+.nav-bar__right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Responsive styles cho màn hình nhỏ */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+  .top-bar {
+    height: 2.5rem;
+  }
+  .top-bar__left img {
+    height: 80px;
+  }
+  .top-bar__right {
+    gap: 0.6rem;
+  }
+  .user-amount {
+    font-size: 0.8rem;
+    padding: 0.1rem 0.4rem;
+  }
+  .nav-bar {
+    height: 3rem;
+  }
+  .nav-icon {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+  .nav-label {
+    display: none;
+  }
+}
+
+/* ====== Thông báo nạp tiền ====== */
+.topup-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 2000;
+}
+
+.topup-message {
+  background: #1f2833;
+  color: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+/* ====== Thông báo nạp tiền ====== */
+.topup-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+}
+
+@keyframes slideDownFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.topup-message {
+  background: #28a745;
+  color: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  animation: slideDownFade 0.4s ease-out;
+  max-width: 90%;
+}
+
+.topup-message h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.topup-message p {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 500;
+}

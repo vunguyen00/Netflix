@@ -1,0 +1,52 @@
+/* vị trí nổi */
+.contact-info {
+  position: fixed;
+  right: 12px;          /* nhỏ lại */
+  bottom: 12px;         /* nhỏ lại */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;             /* giảm khoảng cách */
+  z-index: 9999;
+}
+
+/* pill gọn hơn */
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;                           /* giảm gap chữ–icon */
+  padding: 6px 10px;                  /* giảm padding */
+  border-radius: 999px;
+  background: #fff;
+  color: #111;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(0,0,0,.12);
+  transition: transform .15s ease, box-shadow .15s ease;
+  font-size: 12px;                    /* thu chữ */
+  line-height: 1.1;
+}
+
+.contact-item:hover { transform: translateY(-1px) scale(1.02); }
+
+/* icon nhỏ hơn */
+.contact-icon {
+  width: 28px;                        /* was 40–48 */
+  height: 28px;
+  display: block;
+}
+
+/* text gọn */
+.contact-text { display: flex; flex-direction: column; }
+.contact-name  { font-weight: 600; font-size: 12px; }
+.contact-hours { font-size: 10px; color: #6b7280; }
+
+/* tablet/ màn hình hẹp: ẩn giờ để ngắn hơn */
+@media (max-width: 1024px) {
+  .contact-hours { display: none; }
+}
+
+/* mobile: chỉ icon (như bạn muốn), vẫn đủ to để bấm */
+@media (max-width: 480px) {
+  .contact-item { padding: 8px; }
+  .contact-text { display: none; }
+  .contact-icon { width: 42px; height: 42px; }
+}
