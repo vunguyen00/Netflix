@@ -1,119 +1,54 @@
+# 🚀 Netflix Subscription Platform – Hệ thống Tự động hóa Quản lý & Kinh doanh Tài khoản Chia sẻ
 
-# Netflix Subscription Platform – Nền tảng quản lý & bán tài khoản Netflix chia sẻ
+[![GitHub language count](https://img.shields.io/github/languages/count/YOUR_USERNAME/YOUR_REPO_NAME)](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME)
+[![GitHub last commit](https://img.shields.io/github/last-commit/YOUR_USERNAME/YOUR_REPO_NAME)](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME/commits/main)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Đây là một **ứng dụng web full-stack** giúp quản lý và bán tài khoản Netflix dùng chung.  
-Hệ thống có **bảng điều khiển quản trị**, **quản lý khách hàng**, **xử lý đơn hàng tự động** và **cập nhật số dư theo thời gian thực**.
+## 🌟 Giới thiệu Dự án
 
----
+Đây là một **ứng dụng web full-stack** được thiết kế nhằm **tự động hóa toàn bộ quy trình mua bán, phân phối tài khoản, và quản lý bảo hành** cho dịch vụ Netflix dùng chung.
 
-## **Tính năng**
-- 📱 **Đăng nhập qua số điện thoại** – Khách hàng xác thực bằng số điện thoại.  
-- 🔒 **Bảo mật JWT cho trang quản trị** – Chỉ admin hợp lệ mới truy cập được.  
-- 🔄 **Cập nhật số dư & đơn hàng thời gian thực** – Sử dụng Server-Sent Events (SSE).  
-- 🛒 **Quản lý đơn hàng** – Tạo mới, gia hạn, và tự động hết hạn.  
-- 📊 **Bảng điều khiển Admin** – Quản lý khách hàng, đơn hàng và hồ sơ tài khoản Netflix.  
-- 💳 **Tích hợp thanh toán Stripe** – Hỗ trợ thanh toán trực tuyến.  
-- 📈 **Thống kê & biểu đồ** – Sử dụng thư viện Recharts.
+Mục tiêu chính của dự án là **tối đa hóa hiệu suất vận hành** (Operational Efficiency) và **nâng cao trải nghiệm khách hàng** (Customer Experience) bằng cách loại bỏ sự can thiệp thủ công trong các tác vụ:
 
----
+* **Xử lý đơn hàng:** Từ lúc mua đến lúc kích hoạt/gia hạn.
+* **Phân phối mã bảo hành:** Cung cấp ngay lập tức các mã thay thế (tài khoản mới) nếu tài khoản cũ gặp sự cố.
+* **Giám sát Real-time:** Cung cấp thông tin số dư và trạng thái đơn hàng tức thì cho khách hàng và quản trị viên.
 
-## **Công nghệ sử dụng**
-**Backend:**
-- Node.js, Express, MongoDB
-- JSON Web Tokens (JWT)
-- Node-cron (tác vụ định kỳ)
-
-**Frontend:**
-- React + Vite
-- Tailwind CSS
-- Stripe
-- Recharts
+Hệ thống được xây dựng với một bảng điều khiển quản trị mạnh mẽ, sử dụng các công nghệ hiện đại như Node.js, React, và MongoDB.
 
 ---
 
-## **Yêu cầu trước khi cài đặt**
-- Node.js v18 trở lên
-- npm (hoặc yarn/pnpm)
-- MongoDB (có thể dùng local hoặc MongoDB Atlas)
+## ✨ Tính năng Nổi bật & Chức năng Chính
+
+* **Tự động hóa Đơn hàng (Automated Order Processing):** Xử lý quy trình tạo mới, gia hạn, và hết hạn dịch vụ một cách tự động theo lịch trình (**Node-cron**).
+* **Cập nhật Real-time (Thời gian thực):** Sử dụng **Server-Sent Events (SSE)** để cập nhật tức thì trạng thái đơn hàng và số dư của khách hàng mà không cần tải lại trang.
+* **Bảo mật Truy cập:** Triển khai cơ chế xác thực an toàn (**Đăng nhập bằng SĐT** cho khách hàng và **Bảo mật JWT** cho trang quản trị).
+* **Quản lý Vận hành:** Bảng điều khiển Admin tập trung để quản lý khách hàng, theo dõi lịch sử đơn hàng và hồ sơ tài khoản Netflix.
+* **Tích hợp Thanh toán:** Hỗ trợ thanh toán trực tuyến liền mạch thông qua cổng **Stripe**.
+* **Phân tích Dữ liệu:** Thống kê và biểu đồ (**Recharts**) giúp quản trị viên theo dõi hiệu suất kinh doanh.
 
 ---
 
-## **Cài đặt Backend**
-```bash
-cd backend
-npm install
-```
-Sao chép file cấu hình mẫu và cập nhật các giá trị:
-```bash
-cp backend/.env.example backend/.env
-```
-Sau đó mở `backend/.env` để chỉnh sửa các biến phù hợp với môi trường của bạn:
-```env
-MONGO_URI=chuoi_ket_noi_mongo
-JWT_SECRET=ma_bi_mat
-ADMIN_USER=ten_dang_nhap_admin
-ADMIN_PASS=mat_khau_admin
-```
-Chạy server ở chế độ phát triển:
-```bash
-npm run dev
-```
-Backend mặc định chạy tại: `http://localhost:5000`
+## 🛠️ Công nghệ Sử dụng
+
+| Khía cạnh | Công nghệ | Chi tiết |
+| :--- | :--- | :--- |
+| **Backend** | **Node.js, Express, MongoDB** | Nền tảng server, quản lý dữ liệu NoSQL hiệu suất cao. |
+| **Giao diện** | **React + Vite, Tailwind CSS** | Xây dựng giao diện người dùng hiện đại, nhanh và responsive. |
+| **Bảo mật** | **JSON Web Tokens (JWT)** | Cơ chế xác thực an toàn cho Admin. |
+| **Định kỳ** | **Node-cron** | Quản lý các tác vụ định kỳ tự động. |
+| **Real-time** | **Server-Sent Events (SSE)** | Cập nhật dữ liệu thời gian thực. |
+| **Thanh toán** | **Stripe** | Tích hợp cổng thanh toán. |
+| **Đồ họa** | **Recharts** | Thư viện biểu đồ và thống kê. |
 
 ---
 
-## **Cài đặt Frontend**
-```bash
-cd frontend
-npm install
-npm run dev
-```
-Frontend mặc định chạy tại: `http://localhost:5173`  
-Được cấu hình để gọi API từ backend: `http://localhost:5000`
+## ⚙️ Yêu cầu Hệ thống
+
+Để cài đặt và chạy dự án, bạn cần có:
+
+* **Node.js** v18 trở lên
+* **npm** (hoặc yarn/pnpm)
+* **MongoDB** (có thể dùng local hoặc MongoDB Atlas)
 
 ---
-
-## **Build bản production**
-```bash
-npm run build
-```
-Kết quả build sẽ nằm trong thư mục `/dist`.
-
----
-
-## **Script dự án**
-| Lệnh | Vị trí | Mô tả |
-|------|--------|-------|
-| `npm run dev` | Backend & Frontend | Chạy server phát triển |
-| `npm run build` | Frontend | Build cho môi trường production |
-| `npm run lint` | Frontend | Kiểm tra lỗi code với ESLint |
-
----
-
-## **Cấu trúc thư mục**
-```
-.
-├── backend
-│   ├── src
-│   │   ├── config/       # Cấu hình DB & JWT
-│   │   ├── controllers/  # Xử lý logic API
-│   │   ├── models/       # Mongoose schema
-│   │   ├── routes/       # Định nghĩa API
-│   │   ├── utils/        # Hàm hỗ trợ (cron, SSE, ...)
-│   │   └── server.js
-├── frontend
-│   ├── src
-│   │   ├── components/   # Thành phần UI
-│   │   ├── pages/        # Giao diện trang
-│   │   ├── services/     # Gọi API
-│   │   ├── store/        # Quản lý state
-│   │   └── main.jsx
-└── README.md
-```
-
----
-
-## **Hướng phát triển tương lai**
-- Thêm phân quyền admin nhiều cấp  
-- Hỗ trợ đa ngôn ngữ  
-- Tự động thay thế tài khoản khi bị khóa  
