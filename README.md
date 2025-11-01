@@ -1,8 +1,6 @@
-# 🚀 Netflix Subscription Platform – Hệ thống Tự động hóa Quản lý & Kinh doanh Tài khoản Chia sẻ
+# 🚀 Netflix Subscription Platform – Hệ thống quản lý tài khoản Netflix nâng cao
 
-[![GitHub language count](https://img.shields.io/github/languages/count/YOUR_USERNAME/YOUR_REPO_NAME)](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME)
-[![GitHub last commit](https://img.shields.io/github/last-commit/YOUR_USERNAME/YOUR_REPO_NAME)](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME/commits/main)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+---
 
 ## 🌟 Giới thiệu Dự án
 
@@ -10,22 +8,22 @@
 
 Mục tiêu chính của dự án là **tối đa hóa hiệu suất vận hành** (Operational Efficiency) và **nâng cao trải nghiệm khách hàng** (Customer Experience) bằng cách loại bỏ sự can thiệp thủ công trong các tác vụ:
 
-* **Xử lý đơn hàng:** Từ lúc mua đến lúc kích hoạt/gia hạn.
-* **Phân phối mã bảo hành:** Cung cấp ngay lập tức các mã thay thế (tài khoản mới) nếu tài khoản cũ gặp sự cố.
-* **Giám sát Real-time:** Cung cấp thông tin số dư và trạng thái đơn hàng tức thì cho khách hàng và quản trị viên.
+- **Xử lý đơn hàng:** Từ lúc mua đến lúc kích hoạt/gia hạn.  
+- **Phân phối mã bảo hành:** Cung cấp ngay lập tức các mã thay thế (tài khoản mới) nếu tài khoản cũ gặp sự cố.  
+- **Giám sát Real-time:** Cung cấp thông tin số dư và trạng thái đơn hàng tức thì cho khách hàng và quản trị viên.  
 
-Hệ thống được xây dựng với một bảng điều khiển quản trị mạnh mẽ, sử dụng các công nghệ hiện đại như Node.js, React, và MongoDB.
+Hệ thống được xây dựng với một bảng điều khiển quản trị mạnh mẽ, sử dụng các công nghệ hiện đại như **Node.js, React**, và **MongoDB**.
 
 ---
 
 ## ✨ Tính năng Nổi bật & Chức năng Chính
 
-* **Tự động hóa Đơn hàng (Automated Order Processing):** Xử lý quy trình tạo mới, gia hạn, và hết hạn dịch vụ một cách tự động theo lịch trình (**Node-cron**).
-* **Cập nhật Real-time (Thời gian thực):** Sử dụng **Server-Sent Events (SSE)** để cập nhật tức thì trạng thái đơn hàng và số dư của khách hàng mà không cần tải lại trang.
-* **Bảo mật Truy cập:** Triển khai cơ chế xác thực an toàn (**Đăng nhập bằng SĐT** cho khách hàng và **Bảo mật JWT** cho trang quản trị).
-* **Quản lý Vận hành:** Bảng điều khiển Admin tập trung để quản lý khách hàng, theo dõi lịch sử đơn hàng và hồ sơ tài khoản Netflix.
-* **Tích hợp Thanh toán:** Hỗ trợ thanh toán trực tuyến liền mạch thông qua cổng **Stripe**.
-* **Phân tích Dữ liệu:** Thống kê và biểu đồ (**Recharts**) giúp quản trị viên theo dõi hiệu suất kinh doanh.
+- **Tự động hóa Đơn hàng (Automated Order Processing):** Xử lý quy trình tạo mới, gia hạn, và hết hạn dịch vụ tự động theo lịch trình (**Node-cron**).  
+- **Cập nhật Real-time:** Sử dụng **Server-Sent Events (SSE)** để cập nhật trạng thái đơn hàng và số dư khách hàng mà không cần tải lại trang.  
+- **Bảo mật Truy cập:** Triển khai xác thực an toàn (**Đăng nhập bằng SĐT**, **JWT** cho trang quản trị).  
+- **Bảng điều khiển Admin:** Quản lý khách hàng, lịch sử đơn hàng và hồ sơ tài khoản Netflix.  
+- **Tích hợp Thanh toán:** Thanh toán trực tuyến liền mạch qua **Stripe**.  
+- **Phân tích Dữ liệu:** Thống kê, biểu đồ (**Recharts**) giúp theo dõi hiệu suất kinh doanh.  
 
 ---
 
@@ -34,21 +32,109 @@ Hệ thống được xây dựng với một bảng điều khiển quản tr�
 | Khía cạnh | Công nghệ | Chi tiết |
 | :--- | :--- | :--- |
 | **Backend** | **Node.js, Express, MongoDB** | Nền tảng server, quản lý dữ liệu NoSQL hiệu suất cao. |
-| **Giao diện** | **React + Vite, Tailwind CSS** | Xây dựng giao diện người dùng hiện đại, nhanh và responsive. |
-| **Bảo mật** | **JSON Web Tokens (JWT)** | Cơ chế xác thực an toàn cho Admin. |
-| **Định kỳ** | **Node-cron** | Quản lý các tác vụ định kỳ tự động. |
+| **Frontend** | **React + Vite, Tailwind CSS** | Xây dựng giao diện hiện đại, nhanh và responsive. |
+| **Bảo mật** | **JWT (JSON Web Token)** | Cơ chế xác thực an toàn cho Admin. |
+| **Định kỳ** | **Node-cron** | Quản lý tác vụ định kỳ tự động. |
 | **Real-time** | **Server-Sent Events (SSE)** | Cập nhật dữ liệu thời gian thực. |
-| **Thanh toán** | **Stripe** | Tích hợp cổng thanh toán. |
+| **Thanh toán** | **Stripe** | Cổng thanh toán tích hợp. |
 | **Đồ họa** | **Recharts** | Thư viện biểu đồ và thống kê. |
 
 ---
 
 ## ⚙️ Yêu cầu Hệ thống
 
-Để cài đặt và chạy dự án, bạn cần có:
+- **Node.js** v18 trở lên  
+- **npm** (hoặc yarn/pnpm)  
+- **MongoDB** (local hoặc MongoDB Atlas)  
 
-* **Node.js** v18 trở lên
-* **npm** (hoặc yarn/pnpm)
-* **MongoDB** (có thể dùng local hoặc MongoDB Atlas)
+---
+
+## 💻 Hướng dẫn Cài đặt
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/vunguyen00/Netflix
+```
+
+### 2. Cài đặt Backend
+
+```bash
+cd backend
+npm install
+```
+
+#### Chạy server backend
+
+```bash
+npm run dev
+```
+
+🌐 Backend mặc định chạy tại: [http://localhost:5000](http://localhost:5000)
+
+---
+
+### 3. Cài đặt Frontend
+
+Mở cửa sổ terminal mới và chạy:
+
+```bash
+cd ../frontend
+npm install
+npm run dev
+```
+
+🖥️ Frontend chạy tại: [http://localhost:5173](http://localhost:5173)
+
+---
+
+## 📦 Scripts Dự án
+
+| Lệnh | Vị trí | Mô tả |
+| :--- | :--- | :--- |
+| `npm run dev` | Backend & Frontend | Chạy server ở chế độ phát triển |
+| `npm run build` | Frontend | Build ứng dụng cho production |
+| `npm run lint` | Frontend | Kiểm tra lỗi code với ESLint |
+
+---
+
+## 📂 Cấu trúc Thư mục
+
+```
+.
+├── backend
+│   ├── src
+│   │   ├── config/        # Cấu hình DB, JWT, ...
+│   │   ├── controllers/   # Business Logic (API)
+│   │   ├── models/        # Mongoose Schema
+│   │   ├── routes/        # API Endpoints
+│   │   ├── utils/         # Cron Jobs, SSE Helper, ...
+│   │   └── server.js      # Entry Point Backend
+├── frontend
+│   ├── src
+│   │   ├── components/    # Reusable UI Components
+│   │   ├── pages/         # Main Pages
+│   │   ├── services/      # API Calls
+│   │   ├── store/         # State Management
+│   │   └── main.jsx       # Entry Point Frontend
+└── README.md
+```
+
+---
+
+## 📈 Hướng phát triển Tương lai
+
+- Mở rộng hệ thống phân quyền cho nhiều quản trị viên.  
+- Ứng dụng AI/Machine Learning để phát hiện gian lận và tối ưu hành vi người dùng.  
+- Hỗ trợ đa ngôn ngữ (i18n).  
+
+---
+
+## 👤 Tác giả
+
+**[Nguyen Ngoc Vu]**  
+🌐 Website : https://dailywithminh.com/
+💻 GitHub: https://github.com/vunguyen00/Netflix  
+✉️ Email: nguyenvu00304@gmail.com
 
 ---
